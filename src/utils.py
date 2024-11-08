@@ -1,3 +1,6 @@
+import numpy as np
+import os
+
 # Fonction permettant de vérifier si une variable est un mot (alphabétique)
 def is_word(s):
     # On vérifie que le type de la variable est bien un string, et que ce string est alphabétique
@@ -11,7 +14,7 @@ def confirm(question):
         answer = input(question)
         if not is_confirmation(answer):
             # Si l'entrée n'est pas "Y" ou "N", on lui redemande
-            print(":: Entrée invalide. Merci d'entrer Y ou N")
+            log("FAIL", "Entrée invalide. Merci d'entrer Y ou N")
             continue
         else:
             # On retourne un booléen : si la réponse est Y, alors c'est une confirmation
@@ -23,6 +26,8 @@ def is_confirmation(s):
     # On vérifie si l'entrée est un string, et si c'est Y ou N (la fonction strip() "nettoie" l'entrée, retire les espaces.
     return type(s) == str and (s.strip())[0].lower() in answers
 
+# Utilisée pour transformer un mot en un mot à deviner pour le pendu
+# Exemple: "adam" -> "_ _ _ _" selon les lettres trouvées
 def underscorize(mot, lettres_trouvees):
     # On transforme toutes les lettres en underscore, sauf celles trouvées
     underscored = ""
@@ -37,6 +42,7 @@ def underscorize(mot, lettres_trouvees):
         underscored += " "
     return underscored
 
+# Un tableau contenant des couleurs pour le terminal
 colors = {
     "HEADER": '\033[95m',
     "OKBLUE": '\033[94m',
@@ -49,8 +55,27 @@ colors = {
     "UNDERLINE": '\033[4m'
 }
 
+# Permet de formatter le message à afficher dans la console (ajout des couleurs et des décorations)
 def format_log(log_type, message):
     return colors[log_type] + colors["BOLD"] + ":: " + colors["ENDC"] + message + colors["ENDC"]
 
+# Permet d'afficher un message dans la console avec des couleurs et décorations
 def log(log_type, message):
     print(format_log(log_type, message))
+
+# Permet d'afficher le message de victoire dans la console
+def print_win(lettres_fausses, mot):
+    clear()
+    log("OKGREEN", "Bravo, tu as trouvé le mot !")
+    log("OKGREEN", f"Le mot était {mot} !")
+    log("OKGREEN", f"Après {len(lettres_fausses)} fausse(s) lettre(s) !")
+
+# Si les lettres trouvées couvrent toutes les lettres du mot
+def is_same(mot, lettres_trouvees):
+    mot = np.unique(list(mot))
+    # On regarde donc si les lettres contenues dans lettres_trouvees sont égales aux lettres contenues dans mot en comparant leur version rangée
+    return sorted(mot) == sorted(lettres_trouvees)
+
+# Permet d'effacer la console
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
