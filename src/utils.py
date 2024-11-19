@@ -1,5 +1,9 @@
 import numpy as np
 import os
+from rich.text import Text
+from rich import print
+
+# TODO FIXER CES FDP DE MERDE DE COULEURS
 
 # Fonction permettant de vérifier si une variable est un mot (alphabétique)
 def is_word(s):
@@ -14,7 +18,7 @@ def confirm(question):
         answer = input(question)
         if not is_confirmation(answer):
             # Si l'entrée n'est pas "Y" ou "N", on lui redemande
-            log("FAIL", "Entrée invalide. Merci d'entrer Y ou N")
+            log("red", "Entrée invalide. Merci d'entrer Y ou N")
             continue
         else:
             # On retourne un booléen : si la réponse est Y, alors c'est une confirmation
@@ -24,7 +28,7 @@ def confirm(question):
 def is_confirmation(s):
     answers = ["y", "n"]
     # On vérifie si l'entrée est un string, et si c'est Y ou N (la fonction strip() "nettoie" l'entrée, retire les espaces.
-    return type(s) == str and (s.strip())[0].lower() in answers
+    return type(s) == str and len(s) != 0 and (s.strip())[0].lower() in answers
 
 # Utilisée pour transformer un mot en un mot à deviner pour le pendu
 # Exemple: "adam" -> "_ _ _ _" selon les lettres trouvées
@@ -42,22 +46,10 @@ def underscorize(mot, lettres_trouvees):
         underscored += " "
     return underscored
 
-# Un tableau contenant des couleurs pour le terminal
-colors = {
-    "HEADER": '\033[95m',
-    "OKBLUE": '\033[94m',
-    "OKCYAN": '\033[96m',
-    "OKGREEN": '\033[92m',
-    "WARNING": '\033[93m',
-    "FAIL": '\033[91m',
-    "ENDC": '\033[0m',
-    "BOLD": '\033[1m',
-    "UNDERLINE": '\033[4m'
-}
 
 # Permet de formatter le message à afficher dans la console (ajout des couleurs et des décorations)
 def format_log(log_type, message):
-    return colors[log_type] + colors["BOLD"] + ":: " + colors["ENDC"] + message + colors["ENDC"]
+    return Text.assemble(("::", f"bold {log_type}"), f" {message}")
 
 # Permet d'afficher un message dans la console avec des couleurs et décorations
 def log(log_type, message):
@@ -66,9 +58,9 @@ def log(log_type, message):
 # Permet d'afficher le message de victoire dans la console
 def print_win(lettres_fausses, mot):
     clear()
-    log("OKGREEN", "Bravo, tu as trouvé le mot !")
-    log("OKGREEN", f"Le mot était {mot} !")
-    log("OKGREEN", f"Après {len(lettres_fausses)} fausse(s) lettre(s) !")
+    log("green", "Bravo, tu as trouvé le mot !")
+    log("green", f"Le mot était {mot} !")
+    log("green", f"Après {len(lettres_fausses)} fausse(s) lettre(s) !")
 
 # Si les lettres trouvées couvrent toutes les lettres du mot
 def is_same(mot, lettres_trouvees):
@@ -79,3 +71,18 @@ def is_same(mot, lettres_trouvees):
 # Permet d'effacer la console
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+# Permet de vérifier si une entrée est une difficulté valide
+def is_difficulty(entry):
+    valid_entries = ["f", "n", "d"]
+    return type(entry) == str and len(entry) != 0 and (entry.strip())[0].lower() in valid_entries
+
+# Permet de transformer une difficulté (en chaîne de caractères) en nombre
+def parse_difficulty(entry):
+    definition = {
+        "f": 0,
+        "n": 1,
+        "d": 2
+    }
+
+    return definition[entry]
