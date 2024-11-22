@@ -15,7 +15,7 @@ def main():
         if not utils.is_word(mot):
             utils.log("red", "Erreur: Le mot entré n'est pas un mot valide.")
             continue
-        difficulty = utils.styled_input("yellow", "Quelle sera la difficulté? (F/Facile, N/Normal, D/Difficile): ")
+        difficulty = utils.styled_input("yellow", "Quelle sera la difficulté? (F/Facile, N/Normal, D/Difficile, I/Impossible): ")
         # Si l'entrée n'est pas une difficulté, on le dit à l'utilisateur
         if not utils.is_difficulty(difficulty):
             utils.log("red", "Erreur: La difficulté entrée n'est pas valide.")

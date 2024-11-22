@@ -71,7 +71,7 @@ def clear():
 
 # Permet de vérifier si une entrée est une difficulté valide
 def is_difficulty(entry):
-    valid_entries = ["f", "n", "d"]
+    valid_entries = ["f", "n", "d", "i"]
     return type(entry) == str and len(entry) != 0 and (entry.strip())[0].lower() in valid_entries
 
 # Permet de transformer une difficulté (en chaîne de caractères) en nombre
@@ -79,7 +79,8 @@ def parse_difficulty(entry):
     definition = {
         "f": 0,
         "n": 1,
-        "d": 2
+        "d": 2,
+        "i": 3
     }
 
     return definition[entry]

@@ -1,16 +1,26 @@
+from builtins import range
+
 import utils
 
 tries_per_difficulty = {
     0: 12,
     1: 8,
-    2: 6
+    2: 6,
+    3: 4
 }
 
 # Fonction permettant de gérer le jeu. Retourne un booléen si on a trouvé le mot ou pas
 def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
     max_tries = tries_per_difficulty[difficulty]
     utils.log("green", "Mot: " + utils.underscorize(mot, lettres_trouvees))
-    utils.log("green", f"Essais ratés: {", ".join(lettres_fausses)} (encore {max_tries - len(lettres_fausses)})")
+    errors = ", ".join(lettres_fausses)
+    # En difficulté impossible, on censure les lettres trouvées
+    if difficulty == 3:
+        lettres_fausses_copy = lettres_fausses.copy()
+        for i in range(len(lettres_fausses_copy)):
+            lettres_fausses_copy[i] = "**"
+        errors = ", ".join(lettres_fausses_copy)
+    utils.log("green", f"Essais ratés: {errors} (encore {max_tries - len(lettres_fausses)})")
     guess = utils.styled_input("yellow", "Prochaine lettre (ou mot)?: ")
     # On vérifie que l'entrée est un mot ou une lettre correcte
     if not utils.is_word(guess):
