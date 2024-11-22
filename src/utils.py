@@ -1,6 +1,8 @@
 import numpy as np
 import os
-from rich import print
+from rich.console import Console
+
+console = Console(highlight=False)
 
 # Fonction permettant de vérifier si une variable est un mot (alphabétique)
 def is_word(s):
@@ -36,10 +38,10 @@ def underscorize(mot, lettres_trouvees):
     for letter in mot:
         # Si elle fait partie des lettres trouvées, on la transforme pas
         if letter in lettres_trouvees:
-            underscored += letter
+            underscored += "[blue]" + letter + "[/]"
         else:
             # Sinon on la transforme
-            underscored += "_"
+            underscored += "[blue]_[/]"
         underscored += " "
     return underscored
 
@@ -50,14 +52,14 @@ def format_log(log_type, message):
 
 # Permet d'afficher un message dans la console avec des couleurs et décorations
 def log(log_type, message):
-    print(format_log(log_type, message))
+    console.print(format_log(log_type, message))
 
 # Permet d'afficher le message de victoire dans la console
 def print_win(lettres_fausses, mot):
     clear()
-    log("green", "Bravo, tu as trouvé le mot !")
-    log("green", f"Le mot était {mot} !")
-    log("green", f"Après {len(lettres_fausses)} fausse(s) lettre(s) !")
+    log("green", "Bravo, tu as [green]trouvé[/] le mot !")
+    log("green", f"Le mot était [blue]{mot}[/] !")
+    log("green", f"Après [red]{len(lettres_fausses)}[/] fausse(s) lettre(s) !")
 
 # Si les lettres trouvées couvrent toutes les lettres du mot
 def is_same(mot, lettres_trouvees):
@@ -89,6 +91,6 @@ def parse_difficulty(entry):
 # Dû au fait que la librairie que nous utilisons utilise un print spécifique et qu'on ne peut pas changer la méthode de print dans une input
 def styled_input(color, message):
     # On print avec la fonction du module rich, sans saut à la ligne
-    print(format_log(color, message), end="")
+    console.print(format_log(color, message), end="")
     # Puis on fait une input vide
     return input("")

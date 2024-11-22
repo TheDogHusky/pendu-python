@@ -13,14 +13,15 @@ tries_per_difficulty = {
 def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
     max_tries = tries_per_difficulty[difficulty]
     utils.log("green", "Mot: " + utils.underscorize(mot, lettres_trouvees))
-    errors = ", ".join(lettres_fausses)
+    errors = ", ".join(map(lambda c: f"[blue]{c}[/]", lettres_fausses))
     # En difficulté impossible, on censure les lettres trouvées
     if difficulty == 3:
+        # On crée une copie afin de ne pas modifier le tableau original
         lettres_fausses_copy = lettres_fausses.copy()
         for i in range(len(lettres_fausses_copy)):
             lettres_fausses_copy[i] = "**"
         errors = ", ".join(lettres_fausses_copy)
-    utils.log("green", f"Essais ratés: {errors} (encore {max_tries - len(lettres_fausses)})")
+    utils.log("green", f"Essais ratés: {errors} (encore [red]{max_tries - len(lettres_fausses)}[/])")
     guess = utils.styled_input("yellow", "Prochaine lettre (ou mot)?: ")
     # On vérifie que l'entrée est un mot ou une lettre correcte
     if not utils.is_word(guess):
@@ -53,10 +54,10 @@ def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
     # Si toutes ces conditions ont raté, on ajoute l'entrée dans les lettres fausses et on renvoie à l'utilisateur son erreur
     lettres_fausses.append(guess)
     if len(lettres_fausses) >= max_tries:
-        utils.log("red", "Tu as perdu!")
-        utils.log("red", f"Le mot était {mot}")
+        utils.log("red", "Tu as [red]perdu[/]!")
+        utils.log("red", f"Le mot était [blue]{mot}[/]")
         # On renvoie true (donc mot trouvé) car c'est la façon la plus optimisée de stopper le jeu
         return True
-    utils.log("red", f"Raté, tu as encore {max_tries - len(lettres_fausses)} essais !")
+    utils.log("red", f"Raté, tu as encore [red]{max_tries - len(lettres_fausses)}[/] essais !")
     # S'il n'a plus d'essais disponibles, on arrête le jeu
     return False
