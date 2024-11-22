@@ -18,13 +18,15 @@ Pendu-Python est un jeu du pendu, retranscrit en python à partir de rien, par u
 - Python 3.12
 - rich
 
+Nous vous recommandons d'utiliser un Virtual Environment (venv).
+
 ### Installation
 
 - Clonez le répo (`git clone https://github.com/TheDogHusky/pendu-python.git`)
 - Installez les dépendances (utilisez un venv si possible)
-- Lancez le jeu `python3 main.py`
+- Lancez le jeu `python3 src/main.py`
 - Profitez!
 
 ## Notes
 
-Le code entier est commenté. Si vpous trouvez un bug, merci de le renseigner dans la page "issues" de github.
+Le code entier est commenté. Si vous trouvez un bug, merci de le renseigner dans la page "issues" de github.

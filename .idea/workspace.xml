@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d35b9df5-99a9-4170-a965-642d86231136" name="Changes" comment="feat: difficulté impossible&#10;&#10;- 4 essais&#10;- les erreurs sont censurées">
+    <list default="true" id="d35b9df5-99a9-4170-a965-642d86231136" name="Changes" comment="feat: petits détails visuels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
     </list>
@@ -84,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732260996283</updated>
-      <workItem from="1732260997694" duration="3581000" />
+      <workItem from="1732260997694" duration="4031000" />
     </task>
     <task id="LOCAL-00001" summary="fix: couleurs">
       <option name="closed" value="true" />
@@ -131,6 +132,7 @@
     <MESSAGE value="fix: couleurs" />
     <MESSAGE value="feat: commentaires" />
     <MESSAGE value="feat: difficulté impossible&#10;&#10;- 4 essais&#10;- les erreurs sont censurées" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: difficulté impossible&#10;&#10;- 4 essais&#10;- les erreurs sont censurées" />
+    <MESSAGE value="feat: petits détails visuels" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: petits détails visuels" />
   </component>
 </project>
