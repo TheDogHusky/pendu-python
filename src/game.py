@@ -10,6 +10,8 @@ tries_per_difficulty = {
 # Fonction permettant de gérer le jeu. Retourne un booléen si on a trouvé le mot ou pas
 def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
     max_tries = tries_per_difficulty[difficulty]
+    # On aseptise le mot afin de retirer les tirets
+    mot_aseptise = mot.replace("-", "")
     utils.log("green", "Mot: " + utils.underscorize(mot, lettres_trouvees))
     errors = ", ".join(map(lambda c: f"[blue]{c}[/]", lettres_fausses))
     # En difficulté impossible, on censure les lettres trouvées
@@ -28,7 +30,7 @@ def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
     # On met l'entrée en majuscules pour pouvoir la comparer correctement
     guess = guess.upper().strip()
     # Si l'entrée est dans le mot
-    if guess in list(mot):
+    if guess in list(mot_aseptise):
         # On vérifie que l'entrée n'a pas déjà été trouvée
         if guess in lettres_trouvees:
             utils.log("yellow", "Tu as déjà trouvé cette lettre!")
@@ -37,7 +39,7 @@ def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
         utils.log("green", "Lettre valide !")
         lettres_trouvees.append(guess)
         # Si c'était la dernière lettre à trouver, on finit le jeu
-        if utils.is_same(mot, lettres_trouvees):
+        if utils.is_same(mot_aseptise, lettres_trouvees):
             utils.print_win(lettres_fausses, mot)
             return True
         return False
@@ -46,7 +48,7 @@ def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
         utils.log("yellow", "Tu as déjà tenté cette lettre!")
         return False
     # Si l'entrée est le mot, on finit le jeu
-    if guess == mot or utils.is_same(mot, lettres_trouvees):
+    if guess == mot or utils.is_same(mot_aseptise, lettres_trouvees):
         utils.print_win(lettres_fausses, mot)
         return True
     # Si toutes ces conditions ont raté, on ajoute l'entrée dans les lettres fausses et on renvoie à l'utilisateur son erreur

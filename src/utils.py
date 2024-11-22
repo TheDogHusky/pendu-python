@@ -37,7 +37,9 @@ def underscorize(mot, lettres_trouvees):
     # On itère sur toutes les lettres
     for letter in mot:
         # Si elle fait partie des lettres trouvées, on la transforme pas
-        if letter in lettres_trouvees:
+        if letter == "-":
+            underscored += "-"
+        elif letter in lettres_trouvees:
             underscored += "[blue]" + letter + "[/]"
         else:
             # Sinon on la transforme
