@@ -1,5 +1,3 @@
-from builtins import range
-
 import utils
 
 tries_per_difficulty = {
