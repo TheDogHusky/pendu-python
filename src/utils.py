@@ -1,9 +1,6 @@
 import numpy as np
 import os
-from rich.text import Text
 from rich import print
-
-# TODO FIXER CES FDP DE MERDE DE COULEURS
 
 # Fonction permettant de vérifier si une variable est un mot (alphabétique)
 def is_word(s):
@@ -87,6 +84,10 @@ def parse_difficulty(entry):
 
     return definition[entry]
 
+# Permet d'effectuer un input avec les couleurs.
+# Dû au fait que la librairie que nous utilisons utilise un print spécifique et qu'on ne peut pas changer la méthode de print dans une input
 def styled_input(color, message):
+    # On print avec la fonction du module rich, sans saut à la ligne
     print(format_log(color, message), end="")
+    # Puis on fait une input vide
     return input("")

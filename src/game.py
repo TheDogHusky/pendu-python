@@ -1,6 +1,5 @@
 import utils
 
-# TODO faire des modes de difficulté (nbr d'essais et tolérence avec les erreurs déjà trouvées
 tries_per_difficulty = {
     0: 12,
     1: 8,
