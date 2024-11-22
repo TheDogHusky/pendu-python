@@ -15,7 +15,7 @@ def confirm(question):
     # On n'arrête pas de poser la question tant que la réponse n'est pas une confirmation valide
     while True:
         # On demande à l'utilisateur si in veut "question"
-        answer = input(question)
+        answer = styled_input("yellow", question)
         if not is_confirmation(answer):
             # Si l'entrée n'est pas "Y" ou "N", on lui redemande
             log("red", "Entrée invalide. Merci d'entrer Y ou N")
@@ -49,7 +49,7 @@ def underscorize(mot, lettres_trouvees):
 
 # Permet de formatter le message à afficher dans la console (ajout des couleurs et des décorations)
 def format_log(log_type, message):
-    return Text.assemble(("::", f"bold {log_type}"), f" {message}")
+    return f"[bold {log_type}]::[/] {message}"
 
 # Permet d'afficher un message dans la console avec des couleurs et décorations
 def log(log_type, message):
@@ -86,3 +86,7 @@ def parse_difficulty(entry):
     }
 
     return definition[entry]
+
+def styled_input(color, message):
+    print(format_log(color, message), end="")
+    return input("")

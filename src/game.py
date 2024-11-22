@@ -12,7 +12,7 @@ def handle_game(mot, lettres_fausses, lettres_trouvees, difficulty):
     max_tries = tries_per_difficulty[difficulty]
     utils.log("green", "Mot: " + utils.underscorize(mot, lettres_trouvees))
     utils.log("green", f"Essais ratés: {", ".join(lettres_fausses)} (encore {max_tries - len(lettres_fausses)})")
-    guess = input(utils.format_log("yellow", "Prochaine lettre (ou mot)?: "))
+    guess = utils.styled_input("yellow", "Prochaine lettre (ou mot)?: ")
     # On vérifie que l'entrée est un mot ou une lettre correcte
     if not utils.is_word(guess):
         utils.log("red", "Le mot ou la lettre entré(e) n'est pas valide (hors jeu).")

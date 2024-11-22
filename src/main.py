@@ -2,20 +2,20 @@ import utils
 from game import handle_game
 from time import sleep
 import pyfiglet
-from rich.text import Text
+from rich import print as rprint
 
 def main():
     print(pyfiglet.figlet_format("Python Pendu"))
-    print(Text.assemble("Par Adam Billard, Owen Fouillet et Naoharu Takigawa", "cyan bold"))
+    rprint("[bold blue]Par Adam Billard, Owen Fouillet et Naoharu Takigawa[/]")
     replay = True
     # Tant que l'utilisateur veut jouer, on relance le jeu
     while replay:
-        mot = input(utils.format_log("yellow", "Quel est le mot?: "))
+        mot = utils.styled_input("yellow", "Quel est le mot?: ")
         # Si l'entrée n'est pas un mot, on le dit à l'utilisateur
         if not utils.is_word(mot):
             utils.log("red", "Erreur: Le mot entré n'est pas un mot valide.")
             continue
-        difficulty = input(utils.format_log("yellow", "Quelle sera la difficulté? (F/Facile, N/Normal, D/Difficile): "))
+        difficulty = utils.styled_input("yellow", "Quelle sera la difficulté? (F/Facile, N/Normal, D/Difficile): ")
         # Si l'entrée n'est pas une difficulté, on le dit à l'utilisateur
         if not utils.is_difficulty(difficulty):
             utils.log("red", "Erreur: La difficulté entrée n'est pas valide.")
@@ -36,7 +36,7 @@ def main():
             utils.clear()
             guessed = handle_game(mot, lettres_fausses, lettres_trouvees, difficulty)
             index += 1
-        replay = utils.confirm(utils.format_log("yellow", "Voulez-vous rejouer? (Y/N): "))
+        replay = utils.confirm("Voulez-vous rejouer? (Y/N): ")
 
 
 # Entourer le programme dans une fonction main avec cette condition permet d'éviter l'exécution du code si on importe le fichier. C'est une convention.
