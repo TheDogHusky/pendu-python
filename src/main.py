@@ -1,3 +1,11 @@
+# Cette séction sert à régler le path pour utilisation avec python-embedded
+import os
+import sys
+
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
+# Fin de section
+
 import utils
 from game import handle_game
 from time import sleep

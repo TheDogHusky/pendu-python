@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d35b9df5-99a9-4170-a965-642d86231136" name="Changes" comment="feat: mise à jour du readme">
+    <list default="true" id="9faddca0-bb8c-433f-ac53-734b23ad68e0" name="Changes" comment="feat: ajout du jeu">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python pendu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python pendu.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,37 +17,46 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "TheDogHusky"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TheDogHusky&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/TheDogHusky/pendu-python.git",
-    "accountId": "d48c9638-efd8-4f44-8f78-3e3649291381"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TheDogHusky/pendu-python.git&quot;,
+    &quot;accountId&quot;: &quot;d48c9638-efd8-4f44-8f78-3e3649291381&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2pCD784kfR1KoeHoABTy8GKYcPW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Python.game.executor": "Run",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Shell Script.Start.executor": "Run",
     "Shell Script.start.executor": "Run",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "F:/2024-2025/NSI/python pendu",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -79,24 +88,26 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d35b9df5-99a9-4170-a965-642d86231136" name="Changes" comment="" />
-      <created>1732260996283</created>
+      <changelist id="9faddca0-bb8c-433f-ac53-734b23ad68e0" name="Changes" comment="" />
+      <created>1730794184215</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732260996283</updated>
-      <workItem from="1732260997694" duration="5842000" />
+      <updated>1730794184215</updated>
+      <workItem from="1730794195385" duration="4498000" />
+      <workItem from="1731052756375" duration="990000" />
+      <workItem from="1731054811336" duration="3125000" />
     </task>
-    <task id="LOCAL-00001" summary="fix: couleurs">
+    <task id="LOCAL-00001" summary="feat: initial commit">
       <option name="closed" value="true" />
-      <created>1732262555364</created>
+      <created>1730794644373</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1732262555364</updated>
+      <updated>1730794644373</updated>
     </task>
-    <task id="LOCAL-00002" summary="feat: commentaires">
+    <task id="LOCAL-00002" summary="feat: ajout du jeu">
       <option name="closed" value="true" />
-      <created>1732262745454</created>
+      <created>1730798789806</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
